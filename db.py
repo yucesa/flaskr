@@ -18,7 +18,7 @@ def get_db():
 def close_db(e=None):
     db = g.pop('db', None)
 
-    if db if not None:
+    if db is not None:
         db.close()
 
 def init_db():
