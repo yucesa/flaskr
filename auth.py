@@ -23,9 +23,9 @@ def register():
         elif not password:
             error = 'Password is empty'
         elif db.execute(
-            'SELECT id FROM user WHERE username = ?', (username)
+            'SELECT id FROM user WHERE username = ?', (username,)
         ).fetchone() is not None:
-            error = 'Username is already register'
+            error = 'Username is already register222'
 
 
         if error == None:
@@ -75,7 +75,7 @@ def load_logged_in_user():
         g.user_id = None
     else:
         g.user = get_db().execute(
-            'SELECT * FROM user where id = ?', (user_id)
+            'SELECT * FROM user where id = ?', (user_id,)
         ).fetchone()
 
 
